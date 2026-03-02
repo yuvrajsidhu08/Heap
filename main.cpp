@@ -94,5 +94,22 @@ int main() {
                 cin >> num;
             }
         }
+
+        else if (strcmp(command, "FILE") == 0) {
+            char filename[100];
+            cout << "Enter filename: ";
+            cin >> filename;
+
+            ifstream file(filename);
+            int num;
+
+            while (file >> num && size < 100) {
+                if (num >= 1 && num <= 1000) {
+                    add(heap, size, num);
+                }
+            }
+
+            file.close();
+        }
     }
 }
