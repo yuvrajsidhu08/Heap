@@ -111,5 +111,23 @@ int main() {
 
             file.close();
         }
+
+        else if (strcmp(command, "REMOVE") == 0) {
+            removeOne(heap, size);
+        }
+
+        else if (strcmp(command, "REMOVEALL") == 0) {
+            removeAll(heap, size);
+        }
+
+        else if (strcmp(command, "PRINT") == 0) {
+            printTree(heap, size, 1, 0);
+        }
+
+        else if (strcmp(command, "QUIT") == 0) {
+            break;
+        }
     }
+
+    return 0;
 }
