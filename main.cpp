@@ -16,3 +16,16 @@ void add(int heap[], int& size, int value) {
         i = i / 2;
     }
 }
+
+void removeOne(int heap[], int& size) {
+    if (size == 0) {
+        cout << "Heap is empty." << endl;
+        return;
+    }
+
+    cout << heap[1] << endl;
+
+    heap[1] = heap[size];
+    size--;
+
+    int i = 1;
