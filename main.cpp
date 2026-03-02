@@ -29,3 +29,26 @@ void removeOne(int heap[], int& size) {
     size--;
 
     int i = 1;
+
+    while (true) {
+        int left = i * 2;
+        int right = i * 2 + 1;
+        int largest = i;
+
+        if (left <= size && heap[left] > heap[largest])
+            largest = left;
+
+        if (right <= size && heap[right] > heap[largest])
+            largest = right;
+
+        if (largest != i) {
+            int temp = heap[i];
+            heap[i] = heap[largest];
+            heap[largest] = temp;
+            i = largest;
+        }
+        else {
+            break;
+        }
+    }
+}
