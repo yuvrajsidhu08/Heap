@@ -52,3 +52,23 @@ void removeOne(int heap[], int& size) {
         }
     }
 }
+
+void removeAll(int heap[], int& size) {
+    while (size > 0) {
+        removeOne(heap, size);
+    }
+}
+
+void printTree(int heap[], int size, int index, int depth) {
+    if (index > size)
+        return;
+
+    printTree(heap, size, index * 2 + 1, depth + 1);
+
+    for (int i = 0; i < depth; i++)
+        cout << "\t";
+
+    cout << heap[index] << endl;
+
+    printTree(heap, size, index * 2, depth + 1);
+}
