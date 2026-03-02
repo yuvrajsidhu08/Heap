@@ -72,3 +72,27 @@ void printTree(int heap[], int size, int index, int depth) {
 
     printTree(heap, size, index * 2, depth + 1);
 }
+
+int main() {
+    int heap[101];
+    int size = 0;
+    char command[20];
+
+    while (true) {
+        cout << "\nCommands: ADD, FILE, REMOVE, REMOVEALL, PRINT, QUIT\n";
+        cin >> command;
+
+        if (strcmp(command, "ADD") == 0) {
+            cout << "Enter numbers (0 to stop): ";
+            int num;
+            cin >> num;
+
+            while (num != 0 && size < 100) {
+                if (num >= 1 && num <= 1000) {
+                    add(heap, size, num);
+                }
+                cin >> num;
+            }
+        }
+    }
+}
