@@ -3,6 +3,7 @@
 #include <cstring>
 using namespace std;
 
+// Add one value and bubble up
 void add(int heap[], int& size, int value) {
     size++;
     heap[size] = value;
@@ -17,6 +18,7 @@ void add(int heap[], int& size, int value) {
     }
 }
 
+// Remove largest value and bubble down
 void removeOne(int heap[], int& size) {
     if (size == 0) {
         cout << "Heap is empty." << endl;
@@ -53,12 +55,14 @@ void removeOne(int heap[], int& size) {
     }
 }
 
+// Remove all values
 void removeAll(int heap[], int& size) {
     while (size > 0) {
         removeOne(heap, size);
     }
 }
 
+// Print heap sideways
 void printTree(int heap[], int size, int index, int depth) {
     if (index > size)
         return;
@@ -82,6 +86,7 @@ int main() {
         cout << "\nCommands: ADD, FILE, REMOVE, REMOVEALL, PRINT, QUIT\n";
         cin >> command;
 
+        // Add numbers manually
         if (strcmp(command, "ADD") == 0) {
             cout << "Enter numbers (0 to stop): ";
             int num;
@@ -95,6 +100,7 @@ int main() {
             }
         }
 
+        // Add numbers from file
         else if (strcmp(command, "FILE") == 0) {
             char filename[100];
             cout << "Enter filename: ";
@@ -112,18 +118,22 @@ int main() {
             file.close();
         }
 
+        // Remove largest value
         else if (strcmp(command, "REMOVE") == 0) {
             removeOne(heap, size);
         }
 
+        // Remove all values
         else if (strcmp(command, "REMOVEALL") == 0) {
             removeAll(heap, size);
         }
 
+        // Print tree structure
         else if (strcmp(command, "PRINT") == 0) {
             printTree(heap, size, 1, 0);
         }
 
+        // Quit program
         else if (strcmp(command, "QUIT") == 0) {
             break;
         }
